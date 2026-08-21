@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import logo from "../../../../public/home/commonImg/logo.png"
+import Image from "next/image";
 
 const Navbar = () => {
   const navItems = [
@@ -31,7 +33,7 @@ const Navbar = () => {
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4">
         {/* Logo */}
         <Link href="/" className="text-2xl font-bold text-sky-500">
-          LOGO
+          <Image className="w-12.5 rounded-2xl" src={logo}/>
         </Link>
 
         {/* Menu */}
