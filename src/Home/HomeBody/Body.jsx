@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Body = () => {
+const layanan = () => {
   return (
     <div className="text-3xl font-bold underline">
-      HearBody
+      Hear
     </div>
   )
 }
 
-export default Body
+export default layanan
