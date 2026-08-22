@@ -1,6 +1,6 @@
 import React from "react";
 import { GoSearch } from "react-icons/go";
-import { BsForkKnife } from "react-icons/bs";
+import { BsForkKnife, BsMouse } from "react-icons/bs";
 import { LuCloudSunRain, LuLayers } from "react-icons/lu";
 import { HiOutlineColorSwatch } from "react-icons/hi";
 import headerImage from "../../../public/home/banner/bannerImg.png";
@@ -12,7 +12,7 @@ const Header = () => {
     <div className="flex flex-col md:flex-row items-center text-black w-[95%] m-auto">
       {/* header details*/}
       <div className="">
-        <div className="flex items-stretch gap-4 md:gap-6">
+        <div className="flex items-stretch gap-4 md:gap-6 mt-20.5">
           {/* Left Accent Line */}
           <div className="w-1.5 shrink-0 rounded-full bg-pink-400" />
 
@@ -82,11 +82,21 @@ const Header = () => {
             </span>
           </Link>
         </div>
+        <div className="flex mt-3.5">
+          <p className="[writing-mode:vertical-rl] rotate-180 text-[10px]">Scroll Down</p>
+          <BsMouse className="text-6xl text-pink-400" />
+        </div>
       </div>
       {/* header Image */}
-      <div>
-        <Image src={headerImage} />
-      </div>
+      <Image
+  src={headerImage}
+  alt="Header Image"
+  className="
+    w-full
+    mask-[linear-gradient(to_top,transparent_0%,black_40%,black_100%)]
+    [-webkit-mask-image:linear-gradient(to_top,transparent_0%,black_80%,black_100%)]
+  "
+/>
     </div>
   );
 };
