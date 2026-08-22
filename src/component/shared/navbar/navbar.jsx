@@ -42,7 +42,7 @@ const Navbar = () => {
             <li key={item.id}>
               <Link
                 href={item.path}
-                className="transition-all duration-300 text-[#FF477E] hover:text-[#fac7d6]"
+                className="transition-all duration-300 text-[#000000] hover:text-[#FF477E]"
               >
                 {item.name}
               </Link>
