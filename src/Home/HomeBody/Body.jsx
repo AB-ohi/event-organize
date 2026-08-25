@@ -1,11 +1,32 @@
-import React from 'react'
+// import Layanan from "./Layanan/Layanan"; // tomar existing component structure onujayi
+// import Venue from "./Venue/Venue";
+// import Dresses from "./Dresses/Dresses";
+// import Contact from "./Contact/Contact";
 
-const layanan = () => {
+const Body = () => {
   return (
-    <div className="text-3xl font-bold underline">
-      Hear
-    </div>
-  )
-}
+    <div>
+      <section id="hero">
+        {/* Banner/hero content */}
+      </section>
 
-export default layanan
+      {/* <section id="services">
+        <Services />
+      </section>
+
+      <section id="venue">
+        <Venue />
+      </section>
+
+      <section id="dresses">
+        <Dresses />
+      </section>
+
+      <section id="contact">
+        <Contact />
+      </section> */}
+    </div>
+  );
+};
+
+export default Body;
