@@ -1,7 +1,8 @@
-import Contact from "@/Component/HomeComponet/Contact/Contact";
-import Dresses from "@/Component/HomeComponet/Dresses/Dresses";
-import Services from "@/Component/HomeComponet/Services/Services";
-import Venue from "@/Component/HomeComponet/Venue/Venue";
+import Contact from "@/Component/HomeComponent/Contact/Contact";
+import Dresses from "@/Component/HomeComponent/Dresses/Dresses";
+import Services from "@/Component/HomeComponent/Services/Services";
+import Venue from "@/Component/HomeComponent/Venue/Venue";
+
 
 
 const Body = () => {

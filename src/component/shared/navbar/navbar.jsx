@@ -11,12 +11,12 @@ const Navbar = () => {
   const [showNav, setShowNav] = useState(true);
   const lastScrollY = useRef(0);
 
-  const navItems = [
-    { id: 1, name: "Services", path: "/services" },
-    { id: 2, name: "Venue", path: "/venue" },
-    { id: 3, name: "Dresses", path: "/dresses" },
-    { id: 4, name: "Contact", path: "/contact" },
-  ];
+const navItems = [
+  { id: 1, name: "Services", target: "services" },
+  { id: 2, name: "Venue", target: "venue" },
+  { id: 3, name: "Dresses", target: "dresses" },
+  { id: 4, name: "Contact", target: "contact" },
+]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,7 +83,7 @@ const handleScrollTo = (targetId) => {
           {navItems.map((item) => (
             <li key={item.id}>
               <Link
-                href={item.path}
+                href={`/#${item.target}`}
                 onClick={() => handleScrollTo(item.target)}
                 className="transition-all duration-300 text-[#000000] hover:text-[#FF477E]"
               >
