@@ -12,6 +12,13 @@ import {
   Music,
   ArrowUpRight,
 } from "lucide-react";
+import WeddingPlanning from "../../../../public/home/services/WeddingPlanning.png"
+import VenueBooking from "../../../../public/home/services/VenueBooking.png"
+import BridalMakeup from "../../../../public/home/services/BridalMakeup.png"
+import PhotographyAndVideo from "../../../../public/home/services/PhotographyAndVideo.png"
+import Catering from "../../../../public/home/services/Catering.png"
+import DecorationAndDesign from "../../../../public/home/services/DecorationAndDesign.png"
+import Entertainment from "../../../../public/home/services/Entertainment.png"
 
 const services = [
   {
@@ -20,7 +27,7 @@ const services = [
     slug: "wedding-planning",
     desc: "Full planning from start to the big day, stress-free.",
     icon: Calendar,
-    img: null,
+    img: WeddingPlanning,
   },
   {
     id: 2,
@@ -28,7 +35,7 @@ const services = [
     slug: "venue-booking",
     desc: "Best venue options that fit your budget and concept.",
     icon: MapPin,
-    img: null,
+    img: VenueBooking,
   },
   {
     id: 3,
@@ -36,7 +43,7 @@ const services = [
     slug: "bridal-makeup",
     desc: "Professional makeup artists for the bride and family.",
     icon: Sparkles,
-    img: null,
+    img: BridalMakeup,
   },
   {
     id: 4,
@@ -44,7 +51,7 @@ const services = [
     slug: "photography-video",
     desc: "Capture every precious moment with cinematic quality.",
     icon: Camera,
-    img: null,
+    img: PhotographyAndVideo
   },
   {
     id: 5,
@@ -52,7 +59,7 @@ const services = [
     slug: "catering",
     desc: "Delicious menus with a variety of buffet packages.",
     icon: Utensils,
-    img: null,
+    img: Catering,
   },
   {
     id: 6,
@@ -60,7 +67,7 @@ const services = [
     slug: "decoration-design",
     desc: "Stage and venue decoration tailored to your dream theme.",
     icon: Palette,
-    img: null,
+    img: DecorationAndDesign,
   },
   {
     id: 7,
@@ -68,7 +75,7 @@ const services = [
     slug: "entertainment",
     desc: "Live music, DJ, and experienced MCs for your event.",
     icon: Music,
-    img: null,
+    img: Entertainment,
   },
 ];
 const Services = () => {
