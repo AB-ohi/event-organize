@@ -1,7 +1,8 @@
-// import Layanan from "./Layanan/Layanan"; // tomar existing component structure onujayi
-// import Venue from "./Venue/Venue";
-// import Dresses from "./Dresses/Dresses";
-// import Contact from "./Contact/Contact";
+import Contact from "@/Component/HomeComponet/Contact/Contact";
+import Dresses from "@/Component/HomeComponet/Dresses/Dresses";
+import Services from "@/Component/HomeComponet/Services/Services";
+import Venue from "@/Component/HomeComponet/Venue/Venue";
+
 
 const Body = () => {
   return (
@@ -10,7 +11,7 @@ const Body = () => {
         {/* Banner/hero content */}
       </section>
 
-      {/* <section id="services">
+      <section id="services">
         <Services />
       </section>
 
@@ -24,7 +25,7 @@ const Body = () => {
 
       <section id="contact">
         <Contact />
-      </section> */}
+      </section>
     </div>
   );
 };
