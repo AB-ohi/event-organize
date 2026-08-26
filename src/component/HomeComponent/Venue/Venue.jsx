@@ -81,7 +81,7 @@ const Venue = () => {
                 className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#fde2ea] bg-white text-left shadow-sm transition-colors duration-300 hover:border-[#FF477E] hover:shadow-lg hover:shadow-pink-100"
               >
                 {/* Image */}
-                <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-[#ffe4ec] to-[#fff5f8]">
+                <div className="relative h-48 w-full overflow-hidden bg-linear-to-br from-[#ffe4ec] to-[#fff5f8]">
                   <Image
                     src={venue.img}
                     alt={venue.name}
