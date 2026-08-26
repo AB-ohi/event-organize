@@ -1,83 +1,32 @@
 "use client";
 
+import { services } from "@/data/services";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import {
-  Calendar,
-  MapPin,
-  Sparkles,
-  Camera,
-  Utensils,
-  Palette,
-  Music,
-  ArrowUpRight,
-} from "lucide-react";
-import WeddingPlanning from "../../../../public/home/services/WeddingPlanning.png"
-import VenueBooking from "../../../../public/home/services/VenueBooking.png"
-import BridalMakeup from "../../../../public/home/services/BridalMakeup.png"
-import PhotographyAndVideo from "../../../../public/home/services/PhotographyAndVideo.png"
-import Catering from "../../../../public/home/services/Catering.png"
-import DecorationAndDesign from "../../../../public/home/services/DecorationAndDesign.png"
-import Entertainment from "../../../../public/home/services/Entertainment.png"
+import { motion } from "framer-motion";
 
-const services = [
-  {
-    id: 1,
-    name: "Wedding Planning",
-    slug: "wedding-planning",
-    desc: "Full planning from start to the big day, stress-free.",
-    icon: Calendar,
-    img: WeddingPlanning,
-  },
-  {
-    id: 2,
-    name: "Venue Booking",
-    slug: "venue-booking",
-    desc: "Best venue options that fit your budget and concept.",
-    icon: MapPin,
-    img: VenueBooking,
-  },
-  {
-    id: 3,
-    name: "Bridal Makeup",
-    slug: "bridal-makeup",
-    desc: "Professional makeup artists for the bride and family.",
-    icon: Sparkles,
-    img: BridalMakeup,
-  },
-  {
-    id: 4,
-    name: "Photography & Video",
-    slug: "photography-video",
-    desc: "Capture every precious moment with cinematic quality.",
-    icon: Camera,
-    img: PhotographyAndVideo
-  },
-  {
-    id: 5,
-    name: "Catering",
-    slug: "catering",
-    desc: "Delicious menus with a variety of buffet packages.",
-    icon: Utensils,
-    img: Catering,
-  },
-  {
-    id: 6,
-    name: "Decoration & Design",
-    slug: "decoration-design",
-    desc: "Stage and venue decoration tailored to your dream theme.",
-    icon: Palette,
-    img: DecorationAndDesign,
-  },
-  {
-    id: 7,
-    name: "Entertainment",
-    slug: "entertainment",
-    desc: "Live music, DJ, and experienced MCs for your event.",
-    icon: Music,
-    img: Entertainment,
-  },
+const scatterDirections = [
+  { x: -200, y: -150, rotate: -25 },
+  { x: 220, y: -120, rotate: 20 },
+  { x: -180, y: 180, rotate: 15 },
+  { x: 200, y: 160, rotate: -18 },
+  { x: -260, y: 20, rotate: 30 },
+  { x: 260, y: -40, rotate: -30 },
+  { x: 0, y: -220, rotate: 22 },
+  { x: -60, y: 220, rotate: -20 },
 ];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
 const Services = () => {
   const router = useRouter();
 
@@ -86,10 +35,16 @@ const Services = () => {
   };
 
   return (
-    <section className="bg-[#fff5f8] px-4 py-16 sm:px-6 lg:px-8">
+    <section className="overflow-hidden bg-[#fff5f8] px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mx-auto mb-12 max-w-2xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mx-auto mb-12 max-w-2xl text-center"
+        >
           <span className="text-sm font-semibold uppercase tracking-wider text-[#FF477E]">
             Our Services
           </span>
@@ -99,17 +54,48 @@ const Services = () => {
           <p className="mt-3 text-gray-500">
             Choose a service below to see details and available packages.
           </p>
-        </div>
+        </motion.div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {services.map((service) => {
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.1 }}
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        >
+          {services.map((service, index) => {
             const Icon = service.icon;
+            const dir = scatterDirections[index % scatterDirections.length];
+
             return (
-              <button
+              <motion.button
                 key={service.id}
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    x: dir.x,
+                    y: dir.y,
+                    rotate: dir.rotate,
+                    scale: 0.6,
+                  },
+                  visible: {
+                    opacity: 1,
+                    x: 0,
+                    y: 0,
+                    rotate: 0,
+                    scale: 1,
+                    transition: {
+                      type: "spring",
+                      stiffness: 90,
+                      damping: 14,
+                    },
+                  },
+                }}
                 onClick={() => handleSelect(service.slug)}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#fde2ea] bg-white text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#FF477E] hover:shadow-lg hover:shadow-pink-100"
+                whileHover={{ y: -6 }}
+                whileTap={{ scale: 0.97 }}
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#fde2ea] bg-white text-left shadow-sm transition-colors duration-300 hover:border-[#FF477E] hover:shadow-lg hover:shadow-pink-100"
               >
                 {/* Image */}
                 <div className="relative h-44 w-full overflow-hidden bg-gradient-to-br from-[#ffe4ec] to-[#fff5f8]">
@@ -145,10 +131,10 @@ const Services = () => {
                     {service.desc}
                   </p>
                 </div>
-              </button>
+              </motion.button>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
