@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import logo from "../../../../public/home/commonImg/logo.png";
 import Image from "next/image";
 import { Menu, X } from "lucide-react"; 
-import { Link } from "react-scroll";
+import Link from "next/link";
+import { Link as ScrollLink } from "react-scroll";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -82,26 +83,26 @@ const handleScrollTo = (targetId) => {
         >
           {navItems.map((item) => (
             <li key={item.id}>
-              <Link
+              <ScrollLink
                to={item.to}
                 onClick={() => handleScrollTo(item.target)}
                 className="transition-all duration-300 text-[#000000] hover:text-[#FF477E]"
               >
                 {item.name}
-              </Link>
+              </ScrollLink>
             </li>
           ))}
            {/* Buttons */}
         <div className="order-3 flex items-center gap-3 md:order-3">
-          <Link
+          <ScrollLink
             href="/register"
             className="rounded-full border border-[#fac7d6] px-4 py-2 text-sm font-medium text-[#FF477E] transition-all duration-300 hover:bg-[#fac7d6] hover:text-white"
           >
             Daftar
-          </Link>
+          </ScrollLink>
 
           <Link
-            href="/login"
+           href="/login"
             className="rounded-full bg-[#FF477E] px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-[#fac7d6] hover:text-[#FF477E]"
           >
             Login

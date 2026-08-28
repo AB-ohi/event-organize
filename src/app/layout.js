@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono, Gideon_Roman } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/Component/shared/navbar/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,11 +28,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className={`min-h-full flex flex-col ${GideonRoman .className}`}>
-        <Navbar/>
+      <body className={`min-h-full flex flex-col ${GideonRoman.className}`}>
         {children}
-        
-        </body>
+      </body>
     </html>
   );
 }

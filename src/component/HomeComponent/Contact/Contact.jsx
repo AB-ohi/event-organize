@@ -89,7 +89,7 @@ const Contact = () => {
                   const Icon = item.icon;
                   return (
                     <div key={item.label} className="flex items-start gap-4">
-                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-white/20">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/20">
                         <Icon size={18} />
                       </div>
                       <div>

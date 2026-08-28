@@ -3,7 +3,7 @@ import { GoSearch } from "react-icons/go";
 import { BsForkKnife, BsMouse } from "react-icons/bs";
 import { LuCloudSunRain, LuLayers } from "react-icons/lu";
 import { HiOutlineColorSwatch } from "react-icons/hi";
-import headerImage from "../../../public/home/banner/bannerImg.webp";
+import headerImage from "../../../../public/home/banner/bannerImg.webp";
 import Image from "next/image";
 import Link from "next/link";
 
