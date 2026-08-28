@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import logo from "../../../../public/home/commonImg/logo.png";
 import Image from "next/image";
 import { Menu, X } from "lucide-react"; 
+import { Link } from "react-scroll";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -83,7 +83,7 @@ const handleScrollTo = (targetId) => {
           {navItems.map((item) => (
             <li key={item.id}>
               <Link
-                href={`/#${item.target}`}
+               to={item.to}
                 onClick={() => handleScrollTo(item.target)}
                 className="transition-all duration-300 text-[#000000] hover:text-[#FF477E]"
               >
