@@ -1,23 +1,23 @@
-// import RoyalLehenga from "@/public/dresses/royal-lehenga.jpg";
-// import ModernGown from "@/public/dresses/modern-gown.jpg";
-// import ClassicSherwani from "@/public/dresses/classic-sherwani.jpg";
-// import BlackSuit from "@/public/dresses/black-suit.jpg";
+// import RoyalLehenga from "../../public/home/dresses/royal-lehenga.jpg";
+// import ModernGown from "../../public/home/dresses/modern-gown.jpg";
+// import ClassicSherwani from "../../public/home/dresses/classic-sherwani.jpg";
+// import BlackSuit from "../../public/home/dresses/black-suit.jpg";
 
-// import BrideCover from "@/public/dresses/bride-cover.jpg";
-// import GroomCover from "@/public/dresses/groom-cover.jpg";
+import BrideCover from "../../public/home/dresses/bride-cover.png";
+import GroomCover from "../../public/home/dresses/groom-cover.png";
 
 export const dressCategories = [
   {
     id: "female",
     title: "Bride Collection",
     subtitle: "For Her",
-    // img: BrideCover,
+    img: BrideCover,
   },
   {
     id: "male",
     title: "Groom Collection",
     subtitle: "For Him",
-    // img: GroomCover,
+    img: GroomCover,
   },
 ];
 
