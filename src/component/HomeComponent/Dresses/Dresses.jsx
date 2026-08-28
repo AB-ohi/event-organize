@@ -135,7 +135,7 @@ const Dresses = () => {
                     className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#fde2ea] bg-white text-left shadow-sm transition-colors duration-300 hover:border-[#FF477E] hover:shadow-lg hover:shadow-pink-100"
                   >
                    
-                    <div className="relative aspect-[3/4] w-full overflow-hidden bg-gradient-to-br from-[#ffe4ec] to-[#fff5f8]">
+                    <div className="relative aspect-3/4 w-full overflow-hidden bg-linear-to-br from-[#ffe4ec] to-[#fff5f8]">
                       {dress.img ? (
                         <Image
                           src={dress.img}
