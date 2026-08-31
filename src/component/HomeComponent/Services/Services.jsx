@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-
+console.log(services)
 const scatterDirections = [
   { x: -200, y: -150, rotate: -25 },
   { x: 220, y: -120, rotate: 20 },
