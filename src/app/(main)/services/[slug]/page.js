@@ -1,12 +1,20 @@
+"use client"
 import { services } from "@/data/services";
 import Image from "next/image";
+import { use, useEffect, useState } from "react";
 
-const Page = async ({ params }) => {
+const Page =  ({ params }) => {
 
-  const {serviceData} = params;
-
-  const service = services.find((s)=> s.serviceData === serviceData)
+  const {serviceData} = use (params);
+  const [service, setService] = useState()
+  useEffect(()=>{
+    const filterService = services.find((s)=> s.serviceData === serviceData)
+    setService(filterService)
+  },[serviceData])
   console.log(service)
+ if (!service) {
+    return <div className="mx-auto max-w-4xl px-4 py-16 mt-12">Loading...</div>;
+  }
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 mt-12">
