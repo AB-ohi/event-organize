@@ -1,18 +1,19 @@
-"use client"
+"use client";
 import { services } from "@/data/services";
 import Image from "next/image";
 import { use, useEffect, useState } from "react";
 
-const Page =  ({ params }) => {
+const Page = ({ params }) => {
+  const { slug } = use(params); 
+  const [service, setService] = useState();
 
-  const {serviceData} = use (params);
-  const [service, setService] = useState()
-  useEffect(()=>{
-    const filterService = services.find((s)=> s.serviceData === serviceData)
-    setService(filterService)
-  },[serviceData])
-  console.log(service)
- if (!service) {
+  useEffect(() => {
+    const filterService = services.find((s) => s.slug === slug); 
+    setService(filterService);
+  }, [slug]); 
+
+  
+  if (!service) {
     return <div className="mx-auto max-w-4xl px-4 py-16 mt-12">Loading...</div>;
   }
 
@@ -25,7 +26,6 @@ const Page =  ({ params }) => {
       <h1 className="mt-6 text-3xl font-bold text-gray-900">{service.name}</h1>
       <p className="mt-3 text-gray-600">{service.longDesc}</p>
 
-      {/* Packages */}
       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
         {service.packages.map((pkg) => (
           <div key={pkg.id} className="rounded-2xl border border-[#fde2ea] p-6">
