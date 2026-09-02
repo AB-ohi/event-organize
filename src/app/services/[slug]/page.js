@@ -3,6 +3,7 @@ import { services } from "@/data/services";
 import Image from "next/image";
 import Link from "next/link";
 import { use, useEffect, useState } from "react";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Page = ({ params }) => {
   const { slug } = use(params);
@@ -25,7 +26,7 @@ const Page = ({ params }) => {
 
   return (
     <div className="max-w-4xl mt-4  px-4 mx-auto">
-      <Link href='/' className="py-2 px-2 rounded  bg-pink-400">Home</Link>
+      <Link href='/' className="py-2 px-2 rounded flex items-center w-[90px] justify-center text-white hover:text-pink-400 hover:bg-pink-100 duration-300 bg-pink-400"><IoMdArrowRoundBack />Home</Link>
     <div className="mx-auto py-4">
       <div className="relative h-80 overflow-hidden rounded-2xl">
         <Image
