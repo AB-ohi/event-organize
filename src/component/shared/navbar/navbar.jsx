@@ -86,7 +86,7 @@ const handleScrollTo = (targetId) => {
               <ScrollLink
                to={item.to}
                 onClick={() => handleScrollTo(item.target)}
-                className="transition-all duration-300 text-[#000000] hover:text-[#FF477E]"
+                className="transition-all cursor-pointer duration-300 text-[#000000] hover:text-[#FF477E]"
               >
                 {item.name}
               </ScrollLink>
