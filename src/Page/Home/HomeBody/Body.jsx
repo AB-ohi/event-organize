@@ -9,7 +9,6 @@ const Body = () => {
   return (
     <div>
       <section id="hero">
-        {/* Banner/hero content */}
       </section>
 
       <section id="services">
