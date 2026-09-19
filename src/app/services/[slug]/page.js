@@ -41,10 +41,16 @@ const Page = ({ params }) => {
     <div className="max-w-4xl mt-4  px-4 mx-auto">
       <Link
         href="/"
-        className="py-2 px-2 rounded flex items-center w-[90px] justify-center text-white hover:text-pink-400 hover:bg-pink-100 duration-300 bg-pink-400"
       >
-        <IoMdArrowRoundBack />
+       <motion.div
+        key="select-hint"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="group py-2 px-2 rounded flex items-center w-[90px] justify-center text-white hover:text-pink-400 hover:bg-pink-100 duration-300 bg-pink-400"
+       >
+         <IoMdArrowRoundBack className="transition-transform duration-300 group-hover:-translate-x-1"/>
         Home
+       </motion.div>
       </Link>
       <div className="mx-auto py-4">
         <div className="relative h-80 overflow-hidden rounded-2xl">
