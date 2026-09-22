@@ -13,7 +13,9 @@ const Page = ({ params }) => {
   const [service, setService] = useState();
   const [servicesType, setServicesType] = useState();
   const [selectCategory, setSelectCategory] = useState(null);
-  console.log(selectCategory);
+  const [popup,setPopup] = useState(false);
+  // console.log(selectCategory);
+  // console.log(popup)
 
   const handelSelectValue = (v) => {
     const selectValue = v.target.value;
@@ -118,7 +120,7 @@ const Page = ({ params }) => {
               </span>
             </p>
 
-            <Link href="#">
+            <Link href="#" onClick={()=>setPopup(!popup)}>
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
@@ -145,6 +147,18 @@ const Page = ({ params }) => {
           </motion.div>
         )}
       </div>
+        {
+          popup? (
+            <div>
+              
+            </div>
+          ):(
+            <div>
+
+            </div>
+
+          )
+        }
     </div>
   );
 };
