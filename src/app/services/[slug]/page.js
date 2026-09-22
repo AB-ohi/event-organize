@@ -1,21 +1,21 @@
 "use client";
 import { services } from "@/data/services";
-import { div } from "framer-motion/client";
 import Image from "next/image";
 import Link from "next/link";
 import { use, useEffect, useState } from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { ArrowRight, PartyPopper } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import ServiceInfo from "@/Component/Service/ServiceInfo";
 
 const Page = ({ params }) => {
   const { slug } = use(params);
   const [service, setService] = useState();
   const [servicesType, setServicesType] = useState();
   const [selectCategory, setSelectCategory] = useState(null);
-  const [popup,setPopup] = useState(false);
-  // console.log(selectCategory);
-  // console.log(popup)
+  const [popup, setPopup] = useState(false);
+  console.log(selectCategory);
+  console.log(popup);
 
   const handelSelectValue = (v) => {
     const selectValue = v.target.value;
@@ -41,18 +41,16 @@ const Page = ({ params }) => {
 
   return (
     <div className="max-w-4xl mt-4  px-4 mx-auto">
-      <Link
-        href="/"
-      >
-       <motion.div
-        key="select-hint"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="group py-2 px-2 rounded flex items-center w-[90px] justify-center text-white hover:text-pink-400 hover:bg-pink-100 duration-300 bg-pink-400"
-       >
-         <IoMdArrowRoundBack className="transition-transform duration-300 group-hover:-translate-x-1"/>
-        Home
-       </motion.div>
+      <Link href="/">
+        <motion.div
+          key="select-hint"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="group py-2 px-2 rounded flex items-center w-[90px] justify-center text-white hover:text-pink-400 hover:bg-pink-100 duration-300 bg-pink-400"
+        >
+          <IoMdArrowRoundBack className="transition-transform duration-300 group-hover:-translate-x-1" />
+          Home
+        </motion.div>
       </Link>
       <div className="mx-auto py-4">
         <div className="relative h-80 overflow-hidden rounded-2xl">
@@ -120,7 +118,7 @@ const Page = ({ params }) => {
               </span>
             </p>
 
-            <Link href="#" onClick={()=>setPopup(!popup)}>
+            <Link href="#" onClick={() => setPopup(true)}>
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
@@ -147,18 +145,15 @@ const Page = ({ params }) => {
           </motion.div>
         )}
       </div>
-        {
-          popup? (
-            <div>
-              
+      <div className="relative">
+        {popup && (
+          <div onClick={()=>setPopup(false)} className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+            <div className="bg-white rounded-2xl p-6 max-w-lg w-full mx-4">
+              <ServiceInfo selectCategory={selectCategory} />
             </div>
-          ):(
-            <div>
-
-            </div>
-
-          )
-        }
+          </div>
+        )}
+      </div>
     </div>
   );
 };
