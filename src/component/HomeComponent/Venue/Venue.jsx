@@ -25,6 +25,7 @@ const Venue = () => {
 
   const handleSelect = (slug) => {
     router.push(`/venue/${slug}`);
+      
   };
 
   return (

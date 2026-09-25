@@ -41,7 +41,7 @@ const Page = ({ params }) => {
 
   return (
     <div className="max-w-4xl mt-4  px-4 mx-auto">
-      <Link href="/">
+      <Link href="/#services">
         <motion.div
           key="select-hint"
           initial={{ opacity: 0 }}
