@@ -46,10 +46,10 @@ const Page = ({ params }) => {
           key="select-hint"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="group py-2 px-2 rounded flex items-center w-[90px] justify-center text-white hover:text-pink-400 hover:bg-pink-100 duration-300 bg-pink-400"
+          className="group py-2 px-2 rounded flex items-center w-[90px] justify-center text-white hover:text-[#FF477E]  hover:bg-pink-100 duration-300 bg-[#FF477E] "
         >
           <IoMdArrowRoundBack className="transition-transform duration-300 group-hover:-translate-x-1" />
-          Home
+          Service
         </motion.div>
       </Link>
       <div className="mx-auto py-4">
