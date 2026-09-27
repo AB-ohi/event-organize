@@ -6,6 +6,7 @@ import Link from "next/link";
 import { MapPin, Users, ArrowLeft, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { venues } from "@/data/Venues";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Page = ({ params }) => {
   const { slug } = use(params);
@@ -27,12 +28,16 @@ const Page = ({ params }) => {
   return (
     <div className="mx-auto max-w-5xl px-4 py-16">
       {/* Back link */}
-      <Link
-        href="/#venue"
-        className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-[#FF477E] hover:underline"
-      >
-        <ArrowLeft size={16} />
-        Back to venues
+     <Link href="/#venue">
+        <motion.div
+          key="select-hint"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="group py-2 px-2 mb-10 rounded text-[90%] flex items-center md:w-[35%] justify-center text-white hover:text-[#FF477E]  hover:bg-pink-100 duration-300 bg-[#FF477E] "
+        >
+          <IoMdArrowRoundBack className="transition-transform duration-300 group-hover:-translate-x-1" />
+          Back to Venue
+        </motion.div>
       </Link>
 
       {/* Hero Image */}
@@ -87,19 +92,6 @@ const Page = ({ params }) => {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3"
       >
-        {/* Price Card */}
-        <div className="rounded-2xl border border-[#fde2ea] bg-[#fff5f8] p-6 sm:col-span-1">
-          <p className="text-xs uppercase tracking-wide text-gray-500">
-            Starting from
-          </p>
-          <p className="mt-1 text-2xl font-bold text-[#FF477E]">
-            {venue.price}
-          </p>
-          <button className="mt-5 w-full rounded-full bg-[#FF477E] py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-[#e63a6d]">
-            Book This Venue
-          </button>
-        </div>
-
         {/* Amenities */}
         <div className="rounded-2xl border border-[#fde2ea] p-6 sm:col-span-2">
           <h3 className="text-base font-semibold text-gray-900">
@@ -114,6 +106,21 @@ const Page = ({ params }) => {
             ))}
           </div>
         </div>
+        
+        {/* Price Card */}
+        <div className="rounded-2xl border border-[#fde2ea] bg-[#fff5f8] p-6 sm:col-span-1">
+          <p className="text-xs uppercase tracking-wide text-gray-500">
+            Starting from
+          </p>
+          <p className="mt-1 text-2xl font-bold text-[#FF477E]">
+            {venue.price}
+          </p>
+          <button className="mt-5 w-full rounded-full bg-[#FF477E] py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-[#e63a6d]">
+            Book This Venue
+          </button>
+        </div>
+
+        
       </motion.div>
     </div>
   );
