@@ -102,7 +102,7 @@ const Dresses = () => {
                 <ArrowLeft size={16} />
                 Back to categories
               </button>
-               <div className="text-3xl font-bold my-2.5">{addCategory}</div>
+               <div className="text-3xl font-bold my-2.5 text-black">{addCategory}</div>
 
               <motion.div
                 variants={{
