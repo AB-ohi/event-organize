@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import logo from "../../../../public/home/commonImg/logo.png";
 import Image from "next/image";
-import { Menu, X } from "lucide-react"; 
+import { Menu, ShoppingCart, X } from "lucide-react";
 import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
 
@@ -12,12 +12,12 @@ const Navbar = () => {
   const [showNav, setShowNav] = useState(true);
   const lastScrollY = useRef(0);
 
-const navItems = [
-  { id: 1, name: "Services", target: "services" },
-  { id: 2, name: "Venue", target: "venue" },
-  { id: 3, name: "Dresses", target: "dresses" },
-  { id: 4, name: "Contact", target: "contact" },
-]
+  const navItems = [
+    { id: 1, name: "Services", target: "services" },
+    { id: 2, name: "Venue", target: "venue" },
+    { id: 3, name: "Dresses", target: "dresses" },
+    { id: 4, name: "Contact", target: "contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,13 +40,12 @@ const navItems = [
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-const handleScrollTo = (targetId) => {
+  const handleScrollTo = (targetId) => {
     setIsOpen(false);
     const element = document.getElementById(targetId);
     if (element) {
-      const yOffset = -80; 
-      const y =
-        element.getBoundingClientRect().top + window.scrollY + yOffset;
+      const yOffset = -80;
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
@@ -84,7 +83,7 @@ const handleScrollTo = (targetId) => {
           {navItems.map((item) => (
             <li key={item.id}>
               <ScrollLink
-               to={item.to}
+                to={item.to}
                 onClick={() => handleScrollTo(item.target)}
                 className="transition-all cursor-pointer duration-300 text-[#000000] hover:text-[#FF477E]"
               >
@@ -92,25 +91,34 @@ const handleScrollTo = (targetId) => {
               </ScrollLink>
             </li>
           ))}
-           {/* Buttons */}
-        <div className="order-3 flex items-center gap-3 md:order-3">
-          <ScrollLink
-            href="/register"
-            className="rounded-full border border-[#fac7d6] px-4 py-2 text-sm font-medium text-[#FF477E] transition-all duration-300 hover:bg-[#fac7d6] hover:text-white"
-          >
-            Daftar
-          </ScrollLink>
+          {/* Buttons */}
+          <div className="order-3 flex items-center gap-3 md:order-3">
+            <Link
+              href="/cart"
+              className="relative flex h-10 w-10 items-center justify-center rounded-full border border-[#fac7d6] text-[#FF477E] transition-all duration-300 hover:bg-[#fac7d6] hover:text-white"
+            >
+              <ShoppingCart size={18} />
+              {/* Item count badge */}
+              <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#FF477E] text-[10px] font-bold text-white">
+                2
+              </span>
+            </Link>
 
-          <Link
-           href="/login"
-            className="rounded-full bg-[#FF477E] px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-[#fac7d6] hover:text-[#FF477E]"
-          >
-            Login
-          </Link>
-        </div>
+            <Link
+              href="/register"
+              className="rounded-full border border-[#fac7d6] px-4 py-2 text-sm font-medium text-[#FF477E] transition-all duration-300 hover:bg-[#fac7d6] hover:text-white"
+            >
+              Register
+            </Link>
+
+            <Link
+              href="/login"
+              className="rounded-full bg-[#FF477E] px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-[#fac7d6] hover:text-[#FF477E]"
+            >
+              Login
+            </Link>
+          </div>
         </ul>
-
-       
       </div>
     </nav>
   );
